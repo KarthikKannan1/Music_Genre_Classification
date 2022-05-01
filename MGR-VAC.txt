@@ -1,0 +1,338 @@
+Music Genre Classification using Convolutional Neural Network (CNN)
+
+
+Abstract
+
+In the current situation with spike increase in music tracks, music genre classification has become important and will be one of the great utility to musical database management in obtaining specific music from a huge collection of music. Machine learning is one of the developing branch of artificial intelligence. These models are offering the way for different classification techniques and are proved to be efficient as well as accurate in predicting classes to a great extent. In this paper, we will being using a GTZAN music dataset which compromises 10 different genres such as Blues, Jazz, Metal, Pop and many more. In audio sample Mel Frequency Cepstral Coefficient (MFCC) is used as feature vector. We make use of Convolution Neural Network(CNN) model using keras and train the model. Our results are expected to show greater accuracy level (>85%) and will enhance and facilitate classification of music genre system. 
+
+Introduction
+
+Music Genre Recognition is an important field of research in Music Information Retrieval (MIR).
+Categorizing music files according to their genre is a challenging task in this area.
+A music genre is a conventional category that identifies some pieces of music as belonging to a shared tradition or set of conventions, i.e. it depicts the style of music.
+Music Genre Recognition involves making use of features such as spectrograms, MFCC's for predicting the genre of music.
+
+Existing Work
+
+Existing work on time dependent nature of the dataset Long Short-Term Memory (LSTM) Neural Network was used for music genre classification and combined with Support Vector Machine (SVM) classifier to enhance its performance. The hybrid model of these two classifiers resulted into an increase in the accuracy of prediction of the individual models. This hybrid model was imposed on GTZAN music dataset and was compared with the results of standalone models of LSTM and SVM. The proposed model exceeded the independent accuracies of the LSTM and SVM classifiers.
+The existing model was implemented in two parts. The training of two individual classifiers- SVM and LSTM Neural Network was accomplished. 
+
+Features from the audio files of dataset were extracted and arranged to form the input to be embedded into the two models. 
+The individual accuracy of SVM classifier was 84% and that of the LSTM Neural Network was 69%. The performance of the LSTM model was majorly improved by combining it with the SVM classifier. The combined hybrid model resulted in an accuracy of 89%. The performance of SVM model was also improved. 
+Both the individual models were outperformed by the combined hybrid model which gave the maximum accuracy among all the three models. On the same dataset, the accuracy of all models was evaluated and the proposed hybrid model gives the highest accuracy of 89%. 
+
+Proposed work
+
+The proposed system is used for classifying the music database into different genres. There are many database available for training the system. The literature shows GTZAN and Million Song Dataset (MSD) are most widely used. Here in our approach we plan to use the MSD. 
+This is freely- available collection of songs based on different genres. The dataset consists of audio tracks more than 2 GB.Database of the music is created,then passed for preprocessing stage.
+Feature Vector Extraction is done using the librosa package in python. This package specifically used for the audio analysis. Each audio file is taken for the feature vector is extracted and  called as MFCC. 
+
+The GTZAN data set was also subjected to comparison and ablation experiments.
+The MFCCs encode the timbral properties of the music signal by encoding the rough shape of the log-power spectrum on the Mel-frequency scale.
+The music signal is applied with Fourier Transforms which converts the signal to the frequency spectrum. Then we do the Mel Scale Filtering for obtaining the Mel Frequency Spectrum.
+Then it  is passed to a stage were in Log or the power is taken. The following is then passed on to block which takes the cosine transforms of the following signal and the feature vectors are obtained. We obtain Mel Spectrum with 128 coefficients and another is MFCC with 13 coefficients. Then comparison is done in the following section.
+
+
+Architecture Diagram
+
+The module and steps followed in our methodology is firstly the database of the music 
+is created. Then each song has to go through a preprocessing stage.
+
+Feature Vector Extraction is done using the librosa package in python. Each audio file 
+is taken and from that the feature vector is extracted. The extracted feature vector is 
+called as MFCC.
+
+The MFCCs encode the timbral properties of the music signal by encoding the rough 
+shape of the log-power spectrum on the Mel-frequency scale. 
+
+The music signal is applied with Fourier Transforms which converts the signal to the 
+frequency spectrum. Then it is passed to a stage where the Log (or) the power is taken 
+in the following is then passed on to block which takes the cosine transforms of the 
+following signal and the feature vectors are obtained.
+
+Here we obtain two types of feature vectors, one is Mel Spectrum and another is MFCC 
+with coefficients.
+
+Music Genre Classification - Automatically classify different musical genres. In this 
+tutorial we are going to develop a deep learning project to automatically classify 
+different musical genres from audio files. We will classify these audio files using their 
+low-level features of frequency and time domain.
+
+For this project we need a dataset of audio tracks having similar size and similar 
+frequency range. GTZAN genre classification dataset is the most recommended dataset 
+for the music genre classification project and it was collected for this task only.
+
+Music Genre Classification
+About the dataset:
+The GTZAN genre collection dataset was collected in 2000-2001. It consists of 1000 
+audio files each having 30 seconds duration. There are 10 classes ( 10 music genres) 
+each containing 100 audio tracks. Each track is in .wav format. It contains audio files 
+of the following 10 genres:
+? Blues
+? Classical
+? Country
+? Disco
+? Hip-hop
+? Jazz
+? Metal
+? Pop
+? Reggae
+? Rock
+
+Music Genre Classification approach:
+There are various methods to perform classification on this dataset. Some of these 
+approaches are:
+? Multiclass support vector machines
+? K-means clustering
+? K-nearest neighbors
+? Convolutional neural networks
+
+We will use K-nearest neighbor's algorithm because in various researches it has shown 
+the best results for this problem.
+
+K-Nearest Neighbors is a popular machine learning algorithm for regression and 
+classification. It makes predictions on data points based on their similarity measures i.e 
+distance between them.
+
+Feature Extraction:
+The first step for music genre classification project would be to extract features and 
+components from the audio files. It includes identifying the linguistic content and 
+discarding noise.
+
+Mel Frequency Cepstral Coefficients:
+These are state-of-the-art features used in automatic speech and speech recognition 
+studies. There are a set of steps for generation of these features:
+? Since the audio signals are constantly changing, first we divide these signals 
+into smaller frames. Each frame is around 20-40 ms long
+? Then we try to identify different frequencies present in each frame
+? Now, separate linguistic frequencies from the noise
+? To discard the noise, it then takes discrete cosine transform (DCT) of these 
+frequencies. Using DCT we keep only a specific sequence of frequencies that 
+have a high probability of information.
+
+Convolutional Neural Network 
+
+A Convolutional Neural Network (CNN) it consists of one or more convolutional layers 
+and then proceeded by one or more fully connected layers as in a standard multilayer 
+neural network. Each neuron receives inputs from the feature vectors and then they are dot 
+product with the weights which are then passed on to the next layers and optionally follows 
+it with a non-linearity.
+
+We use three main types of layers to build ConvNet architectures: Convolutional Layer, 
+Pooling Layer, and Fully Connected Layer. Another important concept of CNNs is
+maxpooling, which is a form of non-linear down-sampling. Maxpooling partitions the 
+input signals into a set of nonoverlapping matrix and, for each such sub-region, outputs 
+the maximum value.
+
+Method
+In this section, we explicate features of the dataset and its intended use. Then we explain 
+the mel frequency cepstral coefficients (MFCC) and the preprocessing steps we used
+to obtain these values. In addition, we expound theconcepts of deep learning and 
+convolutional neural networks (CNN). We then give the proposed CNN model and
+parameters of this model. We provide an overview of the steps followed in the study in
+Figure 1.
+
+As can be understood from Figure 1, in this study, we first preprocessed the data and 
+transformed each datum into structures represented by MFCCs. Later, we carried out the 
+training of CNN, which was decided as a result of the experiments, using these structures. 
+We decided the parameters of the model as a result of the experiments. While determining 
+the parameters, we took into account the goal of realizing the most successful 
+classification. Then, we determined the classification success of the model with the
+testing data.
+
+Dataset
+Deep learning models need data when performing operations such as classification,
+regression, and clustering. Therefore, the distribution and accuracy of the dataset to be 
+selected are of great importance. Also, the dataset to be selected should have been used 
+in previous studies in this field and should maintain its validity because the necessity and 
+validity of one's model are determined by comparing it with previous studies. 
+Considering that it had been used in many previous studies and would enable the model 
+to be evaluated more accurately, we used the GTZAN dataset (Tzanetakis & Cook, 2002), 
+which includes 10 different music genres (blues, classical, country, disco, jazz, hip-hop,
+metal, pop, reggae, rock) and 100 different samples for each genre. The dataset contains 
+samples lasting 30 seconds, of 22 050 Hz frequency, and 16 bits.
+
+Preprocessing
+The music segments are structures represented as sound signals. These signals, which 
+have direction and intensity, have constantly changing values depending on time. To
+make the audio signals understandable by the computer,these analog signals should be
+converted into digital signals by sampling with the specified sampling rate. Signalsare 
+represented by graphs created with the amplitude and time information acquired as a 
+result of this process. In Figures 2 and 3, the signal representations of two different data 
+in the GTZAN dataset are given.
+
+Figure 4. Signal Representation of 
+Blues-0
+
+Figure 5. Signal Representation of Metal-0
+
+Audio signals that change constantly depending on time and do not contain order should 
+not be examined as a whole.The reason for this is that they are complex and the learning 
+to be made with the information to be obtained does not have enough efficiency. For this 
+reason, the signals are divided into a certain number of parts, and information is attained 
+from these parts. Two variables called frame length and hop length determine the size of 
+these parts. Frame length represents the number of instances in a frame, while hop length 
+is the variable that determines how many samples each frame will start after the previous
+frame.
+
+Graphics and amplitude values on the time plane do not contain enough information to 
+represent the properties of an audio signal. Fourier transform is the method used to 
+represent these signals in the frequency domain, based on the idea that these signals are
+formed by combining more than one sinusoidal signal with different frequency values.
+With this transformation, the new graphs obtained with frequency and amplitude values 
+by ensuring the transition of the signal from the time plane to the frequency plane are 
+called a spectrum. Figures 4 and 5 show spectrum plots of signals previously represented 
+in the time domain.
+
+Figure 6. Fast Fourier Transform (FFT) of Blues-0
+
+Figure 7. FFT of Metal-0
+
+Graphics resulting from the Fourier transform do not contain time information. To avoid 
+this situation, the audio signal is divided into windows, and Fourier transform is applied 
+to these windows. This application is called short-time Fourier transform, and the 
+graphics that result from the process are called spectrograms. Figures 6 and 7 show
+spectrogram images of the data.
+
+Mel Frequency Cepstral Coefficients (MFCC)
+MFCCs are features that enable distinction similar to the human voice perception system. 
+In this way, MFCCs have astructure that can achieve high performance in applications 
+such as music classification and voice recognition. Cepstrum is defined as the inverse 
+Fourier transform of the logarithmic Fourier transform of a signal. Before taking the 
+logarithm of the cepstrum, if it is arranged according to the mel filters in Figure 8, which 
+shows similar responsesto human hearing nerves, the MFCCs are obtained (K?zrak & 
+Bolat, 2015; Molau et al., 2001).
+
+Figure 8. Spectrogram of Blues-0
+
+Figure 9. Spectrogram of Metal-0
+
+
+In our study, we aim to classify music genres. Considering that music is produced for 
+humans, we think it is the rightchoice to use MFFCs that respond similarly to the human 
+voice perception system. In Figures 9 and 10, we give the MFCC graphics of the data, 
+whose graphics were shown earlier. Graphics can be defined as images that represent the
+changes of MFCC according to frequency values with a color scale
+
+Figure 10. Mel Filters
+
+Figure 11. MFCC of Blues-0
+
+Figure 12. MFCC of Metal-0
+
+As in Zhang et al. (2016), we divided each piece into 3-second pieces, thus ensuring data 
+augmentation. We used the MFCCs of 13x130, which we obtained by selecting the 
+n-mffc, hop-length, and n-fft values as 13, 512, and 2048 respectively (with the use of 
+Python's Librosa library). We divided the 13x130 samples into two as 80% training and
+20% testing. As a result of the experiments carried out, we selected all values in such a 
+way that we could make the most efficient classification.
+
+Deep Learning
+Deep learning is a type of machine learning. Machine learning is a learning model in
+which large datasets are usedby the machine. In short, the machine learning method
+enables artificial intelligence to learn by itself.
+Deep learning allows us to train artificial intelligence to predict outputs with a given 
+dataset. Both supervised and unsupervised learning can be used to train artificial 
+intelligence. Supervised learning is a learning method in which control is provided 
+depending on the outputs to be acquired according to the labeled inputs. Unsupervised 
+learning is a type of learning that is used in uncertain situations and where the control is
+completely left to artificial intelligence.
+
+Artificial Neural Networks
+Artificial neural networks are structures similar to human neurons. Neurons are linked to 
+each other and their effect on output is determined by their weight. The artificial neural 
+network consists of three layers: input layer, hidden layer, and output layer. Hidden layers 
+determine the system's response and efficiency based on inputs and outputs. Because the 
+effect of variables such as the number of neurons and the number of hidden layers in 
+artificial neural networks is not known precisely, they are produced in variable structures. 
+This situation can be given as an example of the difficult situations encountered in neural
+networks.
+
+Deep Neural Networks
+"Deep" in deep neural networks refers to having more than one hidden layer. In other 
+words, deep neural networks can be considered as structures in which the number of 
+hidden layers in artificial neural networks is increased. In thisway, they make better sense
+of the relationships among data and enable us to achieve better results.
+
+Convolutional Neural Networks (CNN)
+The CNN is a deep learning algorithm developed for image
+processing, It generally has a structure consisting of the layers
+shown in Figure 13.
+
+Convolution Layer: In this layer, feature maps are obtained by shifting the filters over the 
+input image. These feature maps can be considered as pixel values representing the image 
+according to the specified filters.
+ 
+Figure 13. CNN Layers
+
+Pooling Layer: In this layer, size reduction is applied to the feature maps that were 
+previously attained in the convolution layer. The purpose of this process is to keep the 
+most important features by reducing the number of parameters.
+
+Fully Connected Layer: In this layer, the final feature vectors are acquired, and the
+process is completed bydetermining the number of neurons in the last layer according 
+to the number of classes to be classified.
+
+Proposed CNN Model
+We gave MFCCs resized to 26x65 as input to CNN. The CNN with the most successful 
+results in experiments consists of the following layers:
+
+? Convolution Layer with filters: 256, kernel size: 3x3, activation function: relu,
+padding: valid,
+
+? Convolution Layer with filters: 256, kernel size: 3x3, activation function: relu,
+padding: valid,
+
+? Average Pooling with pool size: 3x3, strides: 2x2, padding: same,
+? Convolution Layer with filters: 256, kernel size: 3x3, activation function: relu, 
+padding: valid,
+
+? Average Pooling with pool size: 3x3, strides: 2x2, padding: same,
+
+? Convolution Layer with filters: 512, kernel size: 4x4, activation function: relu, 
+padding: valid,
+
+? Global Average Pooling,
+
+? Fully Connected Layer,
+
+? Dense Layer with units: 256, activation function: relu,
+
+? Dense Layer with units: 128, activation function: relu,
+
+? Dense Layer with units: 10, activation function: softmax.
+
+Figure 14. Convolutional neural network architecture
+
+Considering the results we obtained in the experiments, we chose Adam as the 
+optimizer. We carried out the training with 80 epochs using the backpropagation 
+algorithm. We made all the selections to ensure that the model worked more stably and 
+accurately. Deep neural network architecture is given in Figure 12.
+
+Conclusion
+This work shows provides a Convolution Neural Network based automatic music genre 
+classification system. The feature vectors are calculated using Mel Spectrum and 
+MLCC. The python based librosa package helps in extracting the features and thus helps 
+in providing good parameters for the network training. The learning accuracies are 
+shown to be 76% and 47% for Mel Spec and MFCC feature vectors respectively. Thus, 
+this methodology is promising for classification of huge database of songs into the 
+respective genre. The future work will focus on developing the system further to classify 
+the songs based on mood. This will be helpful in finding out which kind of music can 
+reduce stress in a person while listening to it. This be helpful in music therapy which 
+can be used for playing a particular music depending on the person's stress level. This 
+work needs to be further extended for such a system.
+
+The paper presents a hybrid model of two classifiers namely SVM and LSTM and 
+combines the separate results of these classifiers to improve their performances. 
+Consequently, combination of LSTM with SVM also improved their accuracies by 
+fair amount. At last, the three different models were evaluated and deployed over the 
+same training dataset GTZAN to avoid biased evaluation. Ten different genres were 
+classified with an accuracy of 89% by the hybrid model of SVM-LSTM which in fact 
+is the model proposed in this study. The proposed model employed the advantages 
+from the two classifiers and combined them in order to classify all the 10 genres with 
+maximum accuracy. In this paper, a classifier fusion mechanism is adopted in the
+automatic music genre classification to improve the classification accuracy. The 
+proposed method is evaluated on the dataset used in the ISMIR2004 Audio 
+Description Contest. Experimental results show that the performance of
+the proposed classifier fusion-based method is better than the typical music genre 
+classification system which only using a single classifier.
