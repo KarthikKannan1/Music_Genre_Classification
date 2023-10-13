@@ -1,4 +1,4 @@
-# VAC-Assignment-VI-Semester
+# Seminar Project
 Topic Name: Music Genre Classification
 
 <img src ="images/Croma feature.jpeg">
